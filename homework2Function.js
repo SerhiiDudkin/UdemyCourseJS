@@ -78,3 +78,52 @@ function getCoupeNumber(numberPlace) {
     }
 }
 //getCoupeNumber();
+function getTimeFromMinutes(getMinute) {
+    if (typeof getMinute !== "number" || getMinute < 0 || !Number.isInteger(getMinute) || getMinute > 600) {
+        return 'Ошибка, проверьте данные';
+    } else {
+        const hours = Math.floor(getMinute / 60),
+            minute = getMinute % 60;
+        if (hours === 0 || hours > 4) {
+        return `Это ${hours} часов и ${minute} минут`;
+        } else if (hours === 1) {
+            return `Это ${hours} час и ${minute} минут`;
+        } else if (hours > 1 && hours < 5) {
+            return `Это ${hours} часа и ${minute} минут`;
+        }
+
+    }
+}
+getTimeFromMinutes(678);
+
+function findMaxNumber(a, b, c, d) {
+    if (typeof (a) !== "number" ||
+        typeof (b) !== "number" ||
+        typeof (c) !== "number" ||
+        typeof (d) !== "number") {
+        return 0;
+    } else {
+        return Math.max(a, b, c, d);
+    }
+}
+
+function fib(n) {
+    if (typeof n !== "number" || n <= 0 || !Number.isInteger(n)) {
+        return '';
+    }
+    let result = ``;
+    let first = 0;
+    let second = 1;
+    for ( let i = 0; i < n; i++) {
+        if (i + 1 === n) {
+            result += `${first}`;
+        } else {
+            result += `${first} `;
+        }
+        let third = first + second;
+        first = second;
+        second = third;
+    }
+    return result;
+}
+console.log(fib(9));
