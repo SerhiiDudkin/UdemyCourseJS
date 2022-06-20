@@ -12,7 +12,7 @@ function showFamily(arr) {
     return str;
 }
 
-showFamily(family);
+//showFamily(family);
 
 const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
 
@@ -22,4 +22,24 @@ function standardizeStrings(arr) {
     })
 }
 
-standardizeStrings(favoriteCities);
+//standardizeStrings(favoriteCities);
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    if(typeof str !== "string") {
+        return "Ошибка!";
+    } else {
+        let newArr = str.split('');
+        newArr.reverse();
+        return console.log(newArr.join(''));
+    }
+}
+//reverse(someString);
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+
+}
