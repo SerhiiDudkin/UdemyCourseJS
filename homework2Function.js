@@ -40,7 +40,7 @@ function getMathResult(num, times) {
 
     return str;
 }
-
+//getMathResult(5, 6);
 function calculateVolumeAndArea(side) {
     if (typeof side === "number" && side > 0 && Number.isInteger(side)) {
         const volume = side * side * side;
