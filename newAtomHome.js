@@ -5,7 +5,7 @@
 let a = 10;
 
 function f1() {
-  console.log('(global) a = '+a);
+  console.log("(global) a = " + a);
 }
 
 f1(); // в консоле будет (global) a = 10
@@ -18,8 +18,9 @@ f1(); // в консоле будет (global) a = 99
 
 function f2() {
   let a = 33;
-  console.log(local) a = '+a);
+  console.log("(global) a = " + a);
 }
+
 f2(); // в консоле будет (local) a = 33
 f1(); // в консоле будет (global) a = 10
 
@@ -27,11 +28,12 @@ f1(); // в консоле будет (global) a = 10
 //===  иногда переменные нужны снаружи
 //==================================================
 
-let count = 0;   // переменная в глобальной области!
+let count = 0; // переменная в глобальной области!
 function step() {
-  count ++;
+  count++;
   console.log(count);
 }
+
 step(); // в консоле будет 1
 step(); // в консоле будет 2
 step(); // в консоле будет 3
@@ -41,13 +43,14 @@ step(); // в консоле будет 5
 //==================================================
 //===  замыкание
 //==================================================
-function createStep(n=0) {
+function createStep(n = 0) {
   let count = n;
   return function step() {
     count++;
     console.log(count);
-  }
+  };
 }
+
 let step1 = createStep();
 let step2 = createStep(200);
 step1(); // в консоле будет 1
@@ -61,30 +64,34 @@ step2(); // в консоле будет 202
 //==================================================
 //===  Задача на попрошайку с рекурсией
 //==================================================
-function randomInteger(min, max){
+function randomInteger(min, max) {
   // получить случайное число от (min-0,5) до (max+0,5)
   let rand = min - 0.5 + Math.random() * (max - min + 1);
   return Math.round(rand);
 }
 
 let s = 0;
+
 function beggar() {
   s += randomInteger(0, 100);
   console.log(s);
-  if(s >= 250) return;
+  if (s >= 250) return;
   beggar();
 }
+
 beggar();
+
 //============= Метод замыкание с этой функцией ========
-function createBeggar(){
+function createBeggar() {
   let s = 0;
   return function beggar() {
     s += randomInteger(0, 100);
     console.log(s);
-    if(s >= 250) return;
+    if (s >= 250) return;
     beggar();
-  }
+  };
 }
+
 let begg1 = createBeggar();
 begg1();
 
